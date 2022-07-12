@@ -1,13 +1,12 @@
 from PIL import Image
 import imageio.v2 as imageio
 import os
-import sys
-def convert():
-    img = imageio.imread('real.png')
-    imageio.imwrite('real1.ico', img)
-def change_size():
-    im = Image.open('real.png')
-    resized = im.resize((612,612))
-    os.remove("real.png")
-    resized.save("real.png")
-change_size()
+def convert(img_path):
+    img = imageio.imread(img_path+"\icon.png")
+    imageio.imwrite(img_path+"\icon.ico", img)
+def change_size(img_path , size = (512,512)):
+    im = Image.open(img_path+"\icon.png")
+    resized = im.resize(size)
+    os.remove(img_path+"\icon.png")
+    resized.save(img_path+"\icon.png")
+
